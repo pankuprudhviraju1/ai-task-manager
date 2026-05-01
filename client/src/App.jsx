@@ -6,19 +6,19 @@ function App() {
   const [tasks, setTasks] = useState([]);
 
   const fetchTasks = async () => {
-    const res = await axios.get("http://localhost:3001/tasks");
+    const res = await axios.get("https://ai-task-manager-opsw.onrender.com/tasks");
     setTasks(res.data);
   };
 
   const addTask = async () => {
     if (task.trim() === "") return;
-    await axios.post("http://localhost:3001/tasks", { title: task });
+    await axios.post("https://ai-task-manager-opsw.onrender.com/tasks", { title: task });
     setTask("");
     fetchTasks();
   };
 
   const deleteTask = async (id) => {
-    await axios.delete(`http://localhost:3001/tasks/${id}`);
+    await axios.delete(`https://ai-task-manager-opsw.onrender.com/tasks/${id}`);
     fetchTasks();
   };
 
